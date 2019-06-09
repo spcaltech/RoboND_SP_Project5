@@ -91,16 +91,19 @@ int main( int argc, char** argv )
     
     if (!itemPicked)
     {
+      // Add marker if Item is not picked up
       marker.action = visualization_msgs::Marker::ADD;
       marker_pub.publish(marker);
     }
     else if (!itemDropped)
     {
+      // Delete marker if item is dropped off
       marker.action = visualization_msgs::Marker::DELETE;
       marker_pub.publish(marker);
     }
     else
     {
+      // Defaults setting
       marker.pose.position.x = drop_X;
       marker.pose.position.y = drop_Y;
       marker.action = visualization_msgs::Marker::ADD;
